@@ -1,0 +1,17 @@
+name: "03 -  pr (pull_request)"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  afficher-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Afficher des infos pr"
+        run: |
+          echo "PR : "
+          echo "Author : ${{ github.actor }}"
+          echo "Branche pr : ${{ github.head_ref }}"
+          echo "Cible : ${{ github.base_ref }}"
