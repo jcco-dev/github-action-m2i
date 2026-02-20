@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "Ce step va échouer, mais le job continue..."
           exit 1
-        continue-on-error: true    # ← ne bloque pas le job
+        #continue-on-error: true    # ← ne bloque pas le job
  
       - name: " Step 3 — Exécuté quand même"
         run: echo "Je tourne malgré l'échec du step 2"
@@ -25,3 +25,5 @@ jobs:
         run: echo " Quelque chose a échoué ! Envoyer une alerte..."
  
       - name: " Step 5 — Nettoyage toujours exécuté"
+        if: always()              # ← tourne toujours, succès OU échec
+        run: echo " Nettoyage effectué (toujours exécuté)"
